@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lacroqueta.me/"/>
-  <updated>2018-09-13T08:45:36.847Z</updated>
+  <updated>2018-09-12T04:10:53.859Z</updated>
   <id>http://lacroqueta.me/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Connectome</title>
-    <link href="http://lacroqueta.me/2018/09/13/My-New-Post/"/>
-    <id>http://lacroqueta.me/2018/09/13/My-New-Post/</id>
-    <published>2018-09-13T08:38:14.000Z</published>
-    <updated>2018-09-13T08:45:36.847Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>I am here to test the function of Typora to edit Markdown files, and to see what it will turn out as shown on the website.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;I am here to test the function
-      
-    
-    </summary>
-    
-    
-      <category term="Neuroscience" scheme="http://lacroqueta.me/tags/Neuroscience/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>

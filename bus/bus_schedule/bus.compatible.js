@@ -124,7 +124,7 @@ var Infoboard = {
 				vname = vname.replace(pattern1, ''); // route[1]=>route
 				var predefined = ['_countdown', '_nexttime'];
 				if (vname[0] == '_') {
-					//predefined 
+					//predefined
 					if (index == '') index = 'auto';
 					var result = _timeshower(me.currententry); // choose to show nexttime or countdown
 					text = result[predefined.indexOf(vname) + 1];
@@ -460,13 +460,13 @@ function _datefilter(filter) {
 		// 0 - workday, 1 - weekend, 2 - holiday
 		// var holidays_2017 = new Array("2017/1/1","2017/1/2","2017/1/27","2017/1/28","2017/1/29","2017/1/30","2017/1/31","2017/2/1","2017/2/2","2017/4/2","2017/4/3","2017/4/4","2017/4/29","2017/4/30","2017/5/1","2017/5/28","2017/5/29","2017/5/30","2017/10/1","2017/10/2","2017/10/3","2017/10/4","2017/10/5","2017/10/6","2017/10/7","2017/10/8");
 		// var ex_workdays_2017 = new Array("2017/1/22","2017/2/4","2017/4/1","2017/5/27","2017/9/30");
-		var holidays_2018 = new Array("2018/1/1", "2018/2/15", "2018/2/16", "2018/2/17", "2018/2/18", "2018/2/19", "2018/2/20", "2018/2/21", "2018/4/5", "2018/4/6", "2018/4/7", "2018/4/29", "2018/4/30", "2018/5/1", "2018/6/18", "2018/9/24", "2018/10/1", "2018/10/2", "2018/10/3", "2018/10/4", "2018/10/5", "2018/10/6", "2018/10/7");
-		var ex_workdays_2018 = new Array("2018/2/11", "2018/2/24", "2018/4/8", "2018/4/28", "2018/9/29", "2018/9/30");
+		var holidays_2019 = new Array("2019/1/1", "2019/2/4", "2019/2/5", "2019/2/6", "2019/2/7", "2019/2/8", "2019/4/5", "2019/5/1", "2019/6/7", "2019/9/13", "2019/10/1", "2019/10/2", "2019/10/3", "2019/10/4", "2019/10/7");
+		var ex_workdays_2019 = new Array("2019/2/2", "2019/2/3", "2019/9/29", "2019/10/12");
 		var this_date;
 		if (date_str == undefined) this_date = new Date();else this_date = new Date(date_str);
 		date_str = this_date.getFullYear() + '/' + (this_date.getMonth() + 1) + '/' + this_date.getDate();
-		if (holidays_2018.indexOf(date_str) != -1) return 2;
-		if (ex_workdays_2018.indexOf(date_str) != -1) return 0;
+		if (holidays_2019.indexOf(date_str) != -1) return 2;
+		if (ex_workdays_2019.indexOf(date_str) != -1) return 0;
 		if (this_date.getDay() == 6 || this_date.getDay() == 0) return 1;else return 0;
 	};
 	var _weekdayfilter = function _weekdayfilter() {
@@ -529,23 +529,23 @@ var id2 = window.setTimeout(function () {
 //http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html
 
 
-// 对Date的扩展，将 Date 转化为指定格式的String 
-// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
-// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
-// 例子： 
-// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
-// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+// 对Date的扩展，将 Date 转化为指定格式的String
+// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+// 例子：
+// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
 Date.prototype.Format_ = function (fmt) {
-	//author: meizz 
+	//author: meizz
 	if (fmt == '---:--') return this.getUTCHours() * 60 + this.getUTCMinutes() + ':' + this.Format_('ss');else if (fmt == 'auto') return (this.getUTCHours() == 0 ? '' : this.getUTCHours() + ':') + this.Format_('mm:ss');
 	var o = {
-		"M+": this.getUTCMonth() + 1, //月份 
-		"d+": this.getUTCDate(), //日 
-		"h+": this.getUTCHours(), //小时 
-		"m+": this.getUTCMinutes(), //分 
-		"s+": this.getUTCSeconds(), //秒 
-		"q+": Math.floor((this.getUTCMonth() + 3) / 3), //季度 
-		"S": this.getUTCMilliseconds() //毫秒 
+		"M+": this.getUTCMonth() + 1, //月份
+		"d+": this.getUTCDate(), //日
+		"h+": this.getUTCHours(), //小时
+		"m+": this.getUTCMinutes(), //分
+		"s+": this.getUTCSeconds(), //秒
+		"q+": Math.floor((this.getUTCMonth() + 3) / 3), //季度
+		"S": this.getUTCMilliseconds() //毫秒
 	};
 	if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getUTCFullYear() + "").substr(4 - RegExp.$1.length));
 	for (var k in o) {
@@ -553,15 +553,15 @@ Date.prototype.Format_ = function (fmt) {
 	}return fmt;
 };
 Date.prototype.Format = function (fmt) {
-	//author: meizz 
+	//author: meizz
 	var o = {
-		"M+": this.getMonth() + 1, //月份 
-		"d+": this.getDate(), //日 
-		"h+": this.getHours(), //小时 
-		"m+": this.getMinutes(), //分 
-		"s+": this.getSeconds(), //秒 
-		"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-		"S": this.getMilliseconds() //毫秒 
+		"M+": this.getMonth() + 1, //月份
+		"d+": this.getDate(), //日
+		"h+": this.getHours(), //小时
+		"m+": this.getMinutes(), //分
+		"s+": this.getSeconds(), //秒
+		"q+": Math.floor((this.getMonth() + 3) / 3), //季度
+		"S": this.getMilliseconds() //毫秒
 	};
 	if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
 	for (var k in o) {

@@ -1,7 +1,7 @@
 {
 	"version": 1.0,
-	"name": "青春里巴士",
-	"abbr": "青春里巴士",
+	"name": "青春里巴士（回家啦）",
+	"abbr": "青春里巴士（回家啦）",
 	"departure": "金科路",
 	"destination": "青春里",
 	"route": ["晨晖路金科路",

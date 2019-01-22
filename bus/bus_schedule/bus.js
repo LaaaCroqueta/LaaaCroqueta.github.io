@@ -112,10 +112,10 @@ var Infoboard = {
 				if (index != null)
 					index = index[0].replace('[','').replace(']','');
 				else
-					index = ''; 
+					index = '';
 				vname = vname.replace(pattern1, ''); // route[1]=>route
 				var predefined = ['_countdown', '_nexttime'];
-				if (vname[0] == '_') { //predefined 
+				if (vname[0] == '_') { //predefined
 					if (index == '')
 						index = 'auto';
 					var result = _timeshower(me.currententry); // choose to show nexttime or countdown
@@ -192,7 +192,7 @@ var Infoboard = {
 			return undefined;
 		}
 
-		me.language = language?language.toLowerCase():'zh-cn'; 
+		me.language = language?language.toLowerCase():'zh-cn';
 		me.dic = new Dictionary(_language_json, me.language); // default language of bus.js
 
 		me.data_static = JSON.parse(JSON.stringify(me.data)); // deep copy for backup and future translation
@@ -279,25 +279,25 @@ var Infoboard = {
 				success: function (json_ajax) {
 					var dictionary = JSON.parse(json_ajax);
 				// Translation
-					var inner_translate = function (json) {
-							for (var prop in json) {
-								if (prop === 'filter' || prop === 'property' || prop === 'language' || prop === 'time')
-									continue;
-								if (typeof json[prop] === 'string')
-									json[prop] = dictionary[json[prop]]?dictionary[json[prop]]:json[prop];
-								else if (typeof json[prop] === 'object')
-									for (var element in json[prop])
-										inner_translate(json[prop]);
-								else // number, boolean, undefined, function
-									continue;
-							}
-						};
-
-					json = JSON.parse(JSON.stringify(me.data_static)); // make a deep, copy, make on copy first
-					preprocess(json);
-					inner_translate(json);
-
-					me.data = json; // replace real data with this translated copy
+					// var inner_translate = function (json) {
+					// 		for (var prop in json) {
+					// 			if (prop === 'filter' || prop === 'property' || prop === 'language' || prop === 'time')
+					// 				continue;
+					// 			if (typeof json[prop] === 'string')
+					// 				json[prop] = dictionary[json[prop]]?dictionary[json[prop]]:json[prop];
+					// 			else if (typeof json[prop] === 'object')
+					// 				for (var element in json[prop])
+					// 					inner_translate(json[prop]);
+					// 			else // number, boolean, undefined, function
+					// 				continue;
+					// 		}
+					// 	};
+					//
+					// json = JSON.parse(JSON.stringify(me.data_static)); // make a deep, copy, make on copy first
+					// preprocess(json);
+					// inner_translate(json);
+					//
+					// me.data = json; // replace real data with this translated copy
 
 					// UI Update
 					_switchlanguage(dst_lang);
@@ -351,7 +351,7 @@ var Infoboard = {
 				me.container.find().removeClass('bolder');
 				me.tableindex = _tableselector();
 				me.currententry = _timeshower(0)[0];
-				if (me.tableindex == -1) 
+				if (me.tableindex == -1)
 					me.container.children('div.Bottom-container').find('a[href="#businfo'+me.tag+'"]').trigger('click').addClass('text-bold');
 				else
 					me.container.children('div.Bottom-container').find('a[href="#tabview'+me.tableindex+me.tag+'"]').trigger('click').addClass('text-bold');
@@ -436,14 +436,14 @@ function preprocess(json) {
 				json.timetable[t].schedule[s] = p;
 			}
 			if (json.timetable[t].schedule[s].hasOwnProperty('text')) { // convert abbr index into actual text
-				if (typeof json.timetable[t].schedule[s].text == 'number') 
+				if (typeof json.timetable[t].schedule[s].text == 'number')
 					json.timetable[t].schedule[s].text = json.timetable[t].text[json.timetable[t].schedule[s].text];
 			} else {
 				json.timetable[t].schedule[s].text = undefined;
 			}
 		}
 		json.timetable[t].filter = _datefilter(json.timetable[t].filter); // convert abbr to a pre-defined function
-	}	
+	}
 	return json;
 }
 
@@ -505,7 +505,7 @@ function _datefilter(filter) {		   // converter every possible input into a filt
 		return [filter, undefined];
 	else if (typeof filter == 'boolean')
 		return [function(ret){return ret}, filter];
-	else if (filter == 'weekday') 
+	else if (filter == 'weekday')
 		return [_weekdayfilter, undefined];
 	else if (filter == 'holiday')
 		return [_holidayfilter, undefined];
@@ -533,55 +533,55 @@ var id2 = window.setTimeout(function(){global_update(0)},(86400000 - (now.getHou
 // 	var ifbds = new Array(containers.length);
 // 	for (var i = containers.length - 1; i >= 0; i--) {
 // 		ifbds[i] = Infoboard.init(containers[i], )
-		
+
 // 	}
 // });
 //http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html
 
 
-// 对Date的扩展，将 Date 转化为指定格式的String 
-// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
-// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
-// 例子： 
-// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
-// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
-Date.prototype.Format_ = function(fmt) 
-{ //author: meizz 
+// 对Date的扩展，将 Date 转化为指定格式的String
+// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+// 例子：
+// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+Date.prototype.Format_ = function(fmt)
+{ //author: meizz
 	if (fmt == '---:--')
 		return (this.getUTCHours()*60+this.getUTCMinutes())+':'+this.Format_('ss');
 	else if (fmt == 'auto')
 		return ((this.getUTCHours()==0)?(''):(this.getUTCHours()+':'))+this.Format_('mm:ss');
-  var o = { 
-    "M+" : this.getUTCMonth()+1,                 //月份 
-    "d+" : this.getUTCDate(),                    //日 
-    "h+" : this.getUTCHours(),                   //小时 
-    "m+" : this.getUTCMinutes(),                 //分 
-    "s+" : this.getUTCSeconds(),                 //秒 
-    "q+" : Math.floor((this.getUTCMonth()+3)/3), //季度 
-    "S"  : this.getUTCMilliseconds()             //毫秒 
-  }; 
-  if(/(y+)/.test(fmt)) 
-    fmt=fmt.replace(RegExp.$1, (this.getUTCFullYear()+"").substr(4 - RegExp.$1.length)); 
-  for(var k in o) 
-    if(new RegExp("("+ k +")").test(fmt)) 
-  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length))); 
-  return fmt; 
+  var o = {
+    "M+" : this.getUTCMonth()+1,                 //月份
+    "d+" : this.getUTCDate(),                    //日
+    "h+" : this.getUTCHours(),                   //小时
+    "m+" : this.getUTCMinutes(),                 //分
+    "s+" : this.getUTCSeconds(),                 //秒
+    "q+" : Math.floor((this.getUTCMonth()+3)/3), //季度
+    "S"  : this.getUTCMilliseconds()             //毫秒
+  };
+  if(/(y+)/.test(fmt))
+    fmt=fmt.replace(RegExp.$1, (this.getUTCFullYear()+"").substr(4 - RegExp.$1.length));
+  for(var k in o)
+    if(new RegExp("("+ k +")").test(fmt))
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+  return fmt;
 };
-Date.prototype.Format = function(fmt) 
-{ //author: meizz 
-  var o = { 
-    "M+" : this.getMonth()+1,                 //月份 
-    "d+" : this.getDate(),                    //日 
-    "h+" : this.getHours(),                   //小时 
-    "m+" : this.getMinutes(),                 //分 
-    "s+" : this.getSeconds(),                 //秒 
-    "q+" : Math.floor((this.getMonth()+3)/3), //季度 
-    "S"  : this.getMilliseconds()             //毫秒 
-  }; 
-  if(/(y+)/.test(fmt)) 
-    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
-  for(var k in o) 
-    if(new RegExp("("+ k +")").test(fmt)) 
-  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length))); 
-  return fmt; 
+Date.prototype.Format = function(fmt)
+{ //author: meizz
+  var o = {
+    "M+" : this.getMonth()+1,                 //月份
+    "d+" : this.getDate(),                    //日
+    "h+" : this.getHours(),                   //小时
+    "m+" : this.getMinutes(),                 //分
+    "s+" : this.getSeconds(),                 //秒
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度
+    "S"  : this.getMilliseconds()             //毫秒
+  };
+  if(/(y+)/.test(fmt))
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+  for(var k in o)
+    if(new RegExp("("+ k +")").test(fmt))
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+  return fmt;
 };

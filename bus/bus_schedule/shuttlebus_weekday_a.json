@@ -2,10 +2,10 @@
 	"version": 1.0,
 	"name": "青春里巴士",
 	"abbr": "青春里巴士",
-	"departure": "金科路",
-	"destination": "青春里",
-	"route": ["晨晖路金科路",
-          "青春里一期"],
+	"departure": "青春里",
+	"destination": "金科路",
+	"route": ["青春里一期",
+          "晨晖路金科路"],
 	"lastupdate": "2019-01-22 17:23:55",
 	"language": {
 		"default": "zh-cn",
@@ -75,7 +75,6 @@
     {
       "title": "节假日",
       "filter": "holiday",
-      "estimate-delay": 20,
       "priority": 1,
       "schedule": [
         "9:00",

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lacroqueta.me/"/>
-  <updated>2018-12-19T12:27:51.860Z</updated>
+  <updated>2019-01-22T08:11:10.567Z</updated>
   <id>http://lacroqueta.me/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://lacroqueta.me/2019/01/22/test/"/>
+    <id>http://lacroqueta.me/2019/01/22/test/</id>
+    <published>2019-01-22T08:09:49.000Z</published>
+    <updated>2019-01-22T08:11:10.567Z</updated>
+    
+    <content type="html"><![CDATA[<p><pre calss="run"><code><span id="jqueryTestId">点击查看运行结果</span></code></pre></p><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script>    $('#jqueryTestId').click(function () {        var jqueryTestId = document.getElementById('jqueryTestId');        var date = new Date();        jqueryTestId.innerHTML = "当前时间：" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();    });</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;pre calss=&quot;run&quot;&gt;&lt;code&gt;&lt;span id=&quot;jqueryTestId&quot;&gt;点击查看运行结果&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.1/jquery.
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>张江一室户租房指南</title>

@@ -2,9 +2,9 @@
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
-  
-<meta name="viewport"   
-	content="   
+
+<meta name="viewport"
+	content="
 		width = device-width ,
 		initial-scale = 1.0 ,
 		maximum-scale = 1.0 ,
@@ -34,6 +34,61 @@
 	</ul>
 </div> -->
 
+<div class="Infoboard " id="shuttlebus_weekday_a">
+	<div class="Top-container">
+		<div class="Left-top-indicator" formatter="{abbr}"></div>
+		<div class="Right-top-indicator" formatter="[{title}]"></div>
+		<div class="Center-indicator" formatter="{_countdown[auto]}"></div>
+		<div class="Bottom-indicator" formatter="{departure}=>{destination}"></div>
+	</div>
+	<div class="line-dragger width-short"></div>
+	<div class="line-dragger width-medium"></div>
+	<div class="line-dragger width-long"></div>
+	<div class="Bottom-container">
+	</div>
+</div>
+
+<div class="Infoboard" id="shuttlebus_weekday_b">
+	<div class="Top-container">
+		<div class="Left-top-indicator" formatter="{abbr}"></div>
+		<div class="Right-top-indicator" formatter="[{title}]"></div>
+		<div class="Center-indicator" formatter="{_countdown[auto]}"></div>
+		<div class="Bottom-indicator" formatter="{departure}=>{destination}"></div>
+	</div>
+	<div class="line-dragger width-short"></div>
+	<div class="line-dragger width-medium"></div>
+	<div class="line-dragger width-long"></div>
+	<div class="Bottom-container">
+	</div>
+</div>
+
+<div class="Infoboard" id="shuttlebus_weekend_a">
+	<div class="Top-container">
+		<div class="Left-top-indicator" formatter="{abbr}"></div>
+		<div class="Right-top-indicator" formatter="[{title}]"></div>
+		<div class="Center-indicator" formatter="{_countdown[auto]}"></div>
+		<div class="Bottom-indicator" formatter="{departure}=>{destination}"></div>
+	</div>
+	<div class="line-dragger width-short"></div>
+	<div class="line-dragger width-medium"></div>
+	<div class="line-dragger width-long"></div>
+	<div class="Bottom-container">
+	</div>
+</div>
+
+<div class="Infoboard" id="shuttlebus_weekend_b">
+	<div class="Top-container">
+		<div class="Left-top-indicator" formatter="{abbr}"></div>
+		<div class="Right-top-indicator" formatter="[{title}]"></div>
+		<div class="Center-indicator" formatter="{_countdown[auto]}"></div>
+		<div class="Bottom-indicator" formatter="{departure}=>{destination}"></div>
+	</div>
+	<div class="line-dragger width-short"></div>
+	<div class="line-dragger width-medium"></div>
+	<div class="line-dragger width-long"></div>
+	<div class="Bottom-container">
+	</div>
+</div>
 
 <div class="Infoboard " id="pudong58_a">
 	<div class="Top-container">
@@ -99,7 +154,7 @@
 			var lastClick;
 			var showall = true;
 			$('div.Infoboard').click(function() {
-				if (GLOBALVARS['all_ifbds'].length < 4) 
+				if (GLOBALVARS['all_ifbds'].length < 4)
 					return;
 				lastClick = $(this);
 				var newheight = window.innerHeight-lastClick.children('div.Top-container').outerHeight()-lastClick.find('ul.nav').outerHeight()-36;
@@ -138,6 +193,10 @@
 				initialize("campusbus_b", "./bus_schedule/route_1b.json", true);
 				initialize("pudong58_a", "./bus_schedule/pudong58_a.json", true);
 				initialize("pudong58_b", "./bus_schedule/pudong58_b.json", true);
+        initialize("shuttlebus_weekday_a", "./bus_schedule/shuttlebus_weekday_a.json", true);
+        initialize("shuttlebus_weekday_b", "./bus_schedule/shuttlebus_weekday_b.json", true);
+        initialize("shuttlebus_weekend_a", "./bus_schedule/shuttlebus_weekend_a.json", true);
+        initialize("shuttlebus_weekend_b", "./bus_schedule/shuttlebus_weekend_b.json", true);
 			});
 			function initialize(id, url, pattern){
 				$.ajax({

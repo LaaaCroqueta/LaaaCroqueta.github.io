@@ -151,7 +151,27 @@ var Infoboard = {
 			for (var i = timetable.length - 1; i >= 0; i--)
 				timetable[i]['_id'] = i;
 			timetable.sort(function (a, b) {return b.priority - a.priority;}); // sort by priority, stable, the higher the prior
-			for (var i = 0; i <= timetable.length="" -="" 1;="" i++)="" {="" var="" f="timetable[i].filter[0];" if="" (f(timetable[i].filter[1]))="" return="" timetable[i]._id;="" the="" original="" index="" }="" -1;="" _switchlanguage="function" (dst_lang)="" dst_lang="" must="" be="" lowercase="" map="" language="" file="" of="" bus.js="" (dst_lang="==" undefined)="" translate()="" may="" undefined="" no="" section="" is="" in="" json="" return;="" !="=" me.language)="" check="" a="" full-text="" match="" exists="" for="" (var="" key="" me.dic.data)="" (key="==" dst_lang)="" me.language="key;" break;="" language-based="" [lang]-[area]="" ---=""> zh-CN
+			for (var i = 0; i <= timetable.length - 1; i++) {
+				var f = timetable[i].filter[0];
+				if (f(timetable[i].filter[1]))
+					return timetable[i]._id; // return the original index
+			}
+			return -1;
+		}
+		var _switchlanguage = function (dst_lang) { // dst_lang must be lowercase
+			// Map Language File of bus.js
+			if (dst_lang === undefined) // translate() may return undefined if no language section is in the json file
+				return;
+			if (dst_lang !== me.language) { // check if a full-text match exists
+				for (var key in me.dic.data) {
+					key = key.toLowerCase();
+					if (key === dst_lang) {
+						me.language = key;
+						break;
+					}
+				}
+			}
+			if (dst_lang != me.language) { // check if a language-based match exists   [lang]-[area] ---> zh-CN
 				for (var key in me.dic) {
 					if (key.slice(0, 2).toLowerCase() === dst_lang.slice(0, 2)) {
 						me.language = key.toLowerCase();
@@ -564,4 +584,4 @@ Date.prototype.Format = function(fmt)
     if(new RegExp("("+ k +")").test(fmt)) 
   fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length))); 
   return fmt; 
-};</=>
+};

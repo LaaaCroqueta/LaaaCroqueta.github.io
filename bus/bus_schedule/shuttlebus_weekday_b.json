@@ -18,7 +18,7 @@
 	},
 	"timetable": [
 		{
-			"title": "周一-周日",
+			"title": "工作日",
 			"filter": true,
 			"priority": 0,
 			"schedule": [
